@@ -10,11 +10,22 @@ public class Location
 		//asks if they want to be on the coast
 		private boolean isCoastal;
 		//asks if they want to go in Summer or Winter
-		private boolean isSummer;
+		private boolean isWinter;
 		//asks if they have family in the area
 		private boolean haveFamily;
 		//stay in the city or subarbs?
 		private boolean inCity;
+		
+		public Location(String r, String s, String l, boolean c, boolean w, boolean f, boolean i)
+		{
+			region = r;
+			state = s;
+			landmark = l;
+			isCoastal = c;
+			isWinter = w;
+			haveFamily = f;
+			inCity = i;
+		}
 		
 		
 		public String getRegion()
@@ -49,13 +60,13 @@ public class Location
 			{
 				this.isCoastal = isCoastal;
 			}
-		public boolean isSummer()
+		public boolean isWinter()
 			{
-				return isSummer;
+				return isWinter;
 			}
-		public void setSummer(boolean isSummer)
+		public void setWinter(boolean isWinter)
 			{
-				this.isSummer = isSummer;
+				this.isWinter = isWinter;
 			}
 		public boolean isHaveFamily()
 			{
@@ -73,8 +84,4 @@ public class Location
 			{
 				this.inCity = inCity;
 			}
-
-		
-
-		
 	}
