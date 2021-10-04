@@ -27,8 +27,9 @@ public class RunTravelAgent
 				displaySoFar();
 				pool();
 				season();
-				//family();
-				//city();
+				family();
+				city();
+				sumAllUp();
 			}
 		
 		
@@ -149,5 +150,50 @@ public class RunTravelAgent
 				}
 		}
 		
+		public static void family()
+		{
+			System.out.println("\nNow, do you have family in " + getState + "?");
+			System.out.println("\ttype yes or no");
+			askFamily = input.nextLine();
+			if(askFamily.equals("yes"))
+			{
+				System.out.println("Ok we will add visit family to the itinerary!");
+				Trip.get(index).setHaveFamily(true);
+			}
+			else if(askFamily.equals("no"))
+			{
+				System.out.println("No family visiting for you then!!");
+				Trip.get(index).setHaveFamily(false);
+			}
+			
+		}
 		
+		public static void city()
+		{
+			System.out.println("Press enter to do the final steps of your travel plan");
+			enter = input.nextLine();
+			System.out.println("Finally, do you want to stay in the city or the subarbs?");
+			System.out.println("\tuse all lowercase when responding");
+			askCity = input.nextLine();
+			if(askCity.equals("city"))
+			{
+				System.out.println("Staying in the city gives a great idea of what city life is like. Good Choice!");
+				Trip.get(index).setInCity(true);
+			}
+			else if(askCity.equals("subarbs"))
+			{
+				System.out.println("Staying the Subarbs allows you to have some peace but also not be too far from the cty. Great Choice!");
+				Trip.get(index).setInCity(false);
+			}
+		}
+	
+		public static void sumAllUp()
+		{
+			System.out.println("Let's sum up your trip and finalize the details!");
+		}
 	}
+
+
+
+
+
