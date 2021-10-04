@@ -7,15 +7,28 @@ public class RunTravelAgent
 		static ArrayList<Location> Trip = new ArrayList<Location>();
 		static String name;
 		static String enter;
+		static String askRegion;
+		static String getRegion;
+		static int counter = 0;
+		static String askState;
+		static String getState;
+		static int index;
+		static String askPool;
+		static String askSeason;
+		static String askFamily;
+		static String askCity;
 
 		public static void main(String[] args)
 			{
 				introduction();
 				fillArrayList();
-				for(int i = 0; i < Trip.size(); i++)
-					{
-						System.out.println(Trip.get(i).getRegion());
-					}
+				askAboutRegion();
+				askAboutState();
+				displaySoFar();
+				pool();
+				season();
+				//family();
+				//city();
 			}
 		
 		
@@ -48,4 +61,93 @@ public class RunTravelAgent
 			Trip.add(new Location("West", "Washington", "Space Needle", true, true, true, true));
 		}
 
+		public static void askAboutRegion()
+		{
+			System.out.println("First, do you want to travel in the South, North, East, West?");
+			askRegion = input.nextLine();
+			for(int i = 0; i < Trip.size(); i++)
+				{
+					if(askRegion.equals(Trip.get(i).getRegion()))
+						{
+							getRegion = Trip.get(i).getRegion();
+						}
+				}
+			System.out.println("Okay you are going to travel in the " + askRegion);
+		}
+	
+		public static void askAboutState()
+		{
+			System.out.println("\nSo there are four options of states that you can choose in the " + getRegion);
+			System.out.println("Press enter to display these options along with their landmarks");
+			enter = input.nextLine();
+			for(int i = 0; i < Trip.size(); i++)
+				{
+					if(Trip.get(i).getRegion().equals(getRegion))
+						{
+							System.out.println((counter + 1) + ") " + Trip.get(i).getState() + " with the landmark of " + Trip.get(i).getLandmark());
+							counter++;
+						}
+				}
+			System.out.println("\nGo ahead and pick the STATE that you want to visit (with the landmark in mind) (correctly capitalize the state!)");
+			askState = input.nextLine();
+			for(int i = 0; i < Trip.size(); i++)
+				{
+					if(askState.equals(Trip.get(i).getState()))
+						{
+							getState = Trip.get(i).getState();
+						}
+				}
+		}
+		
+		public static void displaySoFar()
+		{
+			System.out.println("\nOk so far you want to travel in the " + getRegion + " and you want to go to " + getState);
+			for(int i = 0; i < Trip.size(); i++)
+				{
+					if(Trip.get(i).getState().equals(getState))
+						{
+							index = i;
+						}
+				}
+			System.out.println("In " + getState + " the major landmark you are going to visit is " + Trip.get(index).getLandmark());
+		}
+		
+		public static void pool()
+		{
+			System.out.println("Press enter to continue our travel plan");
+			enter = input.nextLine();
+			System.out.println("Let's make a couple minor decisions");
+			System.out.println("Do you want to stay at a place where there is a pool?");
+			System.out.println("\treply with yes or no (lowercase)");
+			askPool = input.nextLine();
+			if(askPool.equals("yes"))
+				{
+					System.out.println("Ok you DO you want a pool");
+					Trip.get(index).setHavePool(true);
+				}
+			else if(askPool.equals("no"))
+				{
+					System.out.println("Ok you DO NOT want a pool");
+					Trip.get(index).setHavePool(false);
+				}
+			
+		}
+
+		public static void season()
+		{
+			System.out.println("\nNext: do you want to travel in the winter or summer? (lowercase response)");
+			askSeason = input.nextLine();
+			if(askSeason.equals("winter"))
+				{
+					System.out.println("To recap: you want to travel in the winter so around October-March");
+					Trip.get(index).setWinter(true);
+				}
+			else if(askSeason.equals("summer"))
+				{
+					System.out.println("To recap: you want to travel in the summer so around April-September");
+					Trip.get(index).setWinter(false);
+				}
+		}
+		
+		
 	}

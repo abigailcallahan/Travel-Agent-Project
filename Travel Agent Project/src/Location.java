@@ -8,7 +8,7 @@ public class Location
 		//significant landmark in each state
 		private String landmark;
 		//asks if they want to be on the coast
-		private boolean isCoastal;
+		private boolean havePool;
 		//asks if they want to go in Summer or Winter
 		private boolean isWinter;
 		//asks if they have family in the area
@@ -16,12 +16,12 @@ public class Location
 		//stay in the city or subarbs?
 		private boolean inCity;
 		
-		public Location(String r, String s, String l, boolean c, boolean w, boolean f, boolean i)
+		public Location(String r, String s, String l, boolean p, boolean w, boolean f, boolean i)
 		{
 			region = r;
 			state = s;
 			landmark = l;
-			isCoastal = c;
+			havePool = p;
 			isWinter = w;
 			haveFamily = f;
 			inCity = i;
@@ -52,13 +52,13 @@ public class Location
 			{
 				this.landmark = landmark;
 			}
-		public boolean isCoastal()
+		public boolean havePool()
 			{
-				return isCoastal;
+				return havePool;
 			}
-		public void setCoastal(boolean isCoastal)
+		public void setHavePool(boolean havePool)
 			{
-				this.isCoastal = isCoastal;
+				this.havePool = havePool;
 			}
 		public boolean isWinter()
 			{
