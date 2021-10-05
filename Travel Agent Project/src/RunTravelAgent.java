@@ -78,7 +78,7 @@ public class RunTravelAgent
 	
 		public static void askAboutState()
 		{
-			System.out.println("\nSo there are four options of states that you can choose in the " + getRegion);
+			System.out.println("\nSo there are three options of states that you can choose in the " + getRegion);
 			System.out.println("Press enter to display these options along with their landmarks");
 			enter = input.nextLine();
 			for(int i = 0; i < Trip.size(); i++)
@@ -123,7 +123,7 @@ public class RunTravelAgent
 			askPool = input.nextLine();
 			if(askPool.equals("yes"))
 				{
-					System.out.println("Ok you DO you want a pool");
+					System.out.println("Ok you do want a pool, it is very relaxing!!");
 					Trip.get(index).setHavePool(true);
 				}
 			else if(askPool.equals("no"))
